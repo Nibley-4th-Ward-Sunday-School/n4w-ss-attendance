@@ -81,6 +81,7 @@ resource "aws_lambda_function_url" "callable_url" {
     ]
     allow_origins = [
       "http://localhost:5173",
+      "https://nibley-4th-ward-sunday-school.github.io"
     ]
   }
 }
