@@ -46,7 +46,7 @@ export function App() {
         body: JSON.stringify(payload),
       });
 
-      if (true) {
+      if (response.ok) {
         setSubmitStatus("success");
         setStoredName(trimmedName);
         setName("");

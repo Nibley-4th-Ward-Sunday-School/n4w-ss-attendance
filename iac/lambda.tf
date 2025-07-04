@@ -57,6 +57,11 @@ resource "aws_lambda_function" "n4w_ss_attendance_submission_handler" {
   role             = aws_iam_role.n4w_ss_attendance_lambda_role.arn
   handler          = "index.handler"
   source_code_hash = data.archive_file.n4w_ss_attendance_lambda_src.output_base64sha256
+  environment {
+    variables = {
+      DYNAMODB_TABLE_NAME = aws_dynamodb_table.attendance.name
+    }
+  }
 
   reserved_concurrent_executions = 5
 
