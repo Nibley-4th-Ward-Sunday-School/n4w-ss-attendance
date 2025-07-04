@@ -86,8 +86,11 @@ export const handler = async (event) => {
     };
   }
   const now = new Date();
+  const isSunday = now.getDay() === 0; // 0 is Sunday in JavaScript
   const epochSeconds = Math.floor(now.getTime() / 1000);
-  const expirationTime = epochSeconds + secondsInYear; // 1 year expiration
+  const expirationTime = isSunday
+    ? epochSeconds + secondsInYear // 1 year expiration
+    : epochSeconds + 300; // 5 minutes expiration if not Sunday
   const currentIsoDate = now.toISOString().slice(0, 10);
   const command = new PutCommand({
     TableName: dynamodbTableName,

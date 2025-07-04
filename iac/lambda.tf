@@ -63,7 +63,7 @@ resource "aws_lambda_function" "n4w_ss_attendance_submission_handler" {
     }
   }
 
-  reserved_concurrent_executions = 5
+  reserved_concurrent_executions = 50
 
   runtime = "nodejs22.x"
 }
