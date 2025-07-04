@@ -38,7 +38,7 @@ export function App() {
       };
 
       // Make POST request to API (replace with your actual endpoint)
-      const response = await fetch("/api/attendance", {
+      const response = await fetch(import.meta.env.VITE_API_BASE_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
